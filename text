@@ -1,0 +1,15 @@
+<tr>
+									<td>1</td>
+									<td>Vincent Williamson</td>
+									<td>31</td>
+									<td>iOS Developer</td>
+									<td>Sinaai-Waas</td>
+									<td>
+										<ul class="action-list">
+											<li><a href="#" data-tip="edit"><i
+													class="fa fa-edit"></i></a></li>
+											<li><a href="#" data-tip="delete"><i
+													class="fa fa-trash"></i></a></li>
+										</ul>
+									</td>
+								</tr>
