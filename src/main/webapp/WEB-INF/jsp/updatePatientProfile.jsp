@@ -8,50 +8,83 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Update Profile</title>
+<link href="<c:url value="/resources/admin/admin.css" />"
+	rel="stylesheet">
+<script src="<c:url value="/resources/admin/admin.js" />"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link
+	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap"
+	rel="stylesheet">
+<link href="<c:url value="/resources/patupdatePro/pro.css" />"
+	rel="stylesheet">
 </head>
+
 <body>
-	<div align="center">
-		<h2>Update Profile</h2>
+	<div class="side_menu">
+		<div class="burger_box">
+			<div class="menu-icon-container">
+				<a href="#" class="menu-icon js-menu_toggle closed"> <span
+					class="menu-icon_box"> <span
+						class="menu-icon_line menu-icon_line--1"></span> <span
+						class="menu-icon_line menu-icon_line--2"></span> <span
+						class="menu-icon_line menu-icon_line--3"></span>
+				</span>
+				</a>
+			</div>
+		</div>
+		<div class="container">
+			<h2 class="menu_title">Dash Board</h2>
+			<ul class="list_load">
+				<li class="list_item"><a href="/patientDocsList">Book
+						Appointment</a></li>
+				<li class="list_item"><a href="/updatePatientProfile/${pId}">Update
+						Profile</a></li>
+				<li class="list_item"><a href="/viewAppointment/${pId}">Appointments
+						History</a></li>
+				<li class="list_item"><a href="/images/${pId}">Medication
+						History</a></li>
+				<li class="list_item"><a href="/feedback">Feedback</a></li>
+			</ul>
+			<div class="spacer_box">
+				<p>${pEmail}</p>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container">
 		<form:form action="/updatePatient" method="post"
 			modelAttribute="patient">
-			<table border="1" cellpadding="5">
-				<!-- <tr>
-					<td>Id:</td>
-					<td> --><form:input type="hidden" path="id"  /><!-- </td>
-				</tr> -->
-				<tr>
-					<td>Name:</td>
-					<td><form:input path="name" /></td>
-				</tr>
-				<!-- <tr>
-					<td>Email:</td>
-					<td> --><form:input type="hidden" path="email" /><!-- </td>
-				</tr> -->
-				<tr>
-					<td>Password:</td>
-					<td><form:input path="password" /></td>
-				</tr>
-				<tr>
-					<td>Address:</td>
-					<td><form:input path="address" /></td>
-				</tr>
-				<tr>
-					<td>Gender:</td>
-					<td><form:input path="sex" /></td>
-				</tr>
-				<tr>
-					<td>Age:</td>
-					<td><form:input path="age" /></td>
-				</tr>
-				<tr>
-					<td>Blood Group:</td>
-					<td><form:input path="bloodgrp" /></td>
-				</tr>
+			<P>Update Profile</P>
+			<form:input type="hidden" path="id" />
+			<form:input type="hidden" path="email" />
 
-				<tr>
-					<td colspan="2"><input type="submit" value="Update"></td>
-				</tr>
-			</table>
+			<form:input path="password" />
+
+
+			<form:input path="address" />
+
+
+			<form:input path="sex" />
+
+
+			<form:input path="age" />
+
+
+			<form:input path="bloodgrp" />
+
+
+			<input type="submit" value="Update">
+
 		</form:form>
+		<div class="drops">
+			<div class="drop drop-1"></div>
+			<div class="drop drop-2"></div>
+			<div class="drop drop-3"></div>
+			<div class="drop drop-4"></div>
+			<div class="drop drop-5"></div>
+		</div>
+	</div>
+
 </body>
 </html>

@@ -8,15 +8,16 @@
 <head>
 <meta charset="ISO-8859-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link href="<c:url value="resources/admin/admin.css" />"
+<link href="<c:url value="/resources/admin/admin.css" />"
 	rel="stylesheet">
-<script src="<c:url value="resources/admin/admin.js" />"></script>
-
+<script src="<c:url value="/resources/admin/admin.js" />"></script>
+<link href="<c:url value="/resources/PatHome/pat.css" />"
+	rel="stylesheet">
 <title>Patient Home</title>
 </head>
 <body>
-	<h1 class="page_title">Welcome ${aEmail} !!!</h1>
-	<h4 class="what_to_do">Here are the Updates for u</h4>
+	<%-- 	<h1 class="page_title">Welcome ${aEmail} !!!</h1>
+	<h4 class="what_to_do">Here are the Updates for u</h4> --%>
 	<div class="side_menu">
 		<div class="burger_box">
 			<div class="menu-icon-container">
@@ -47,5 +48,20 @@
 			</div>
 		</div>
 	</div>
+	<a href="#">
+		<figure>
+			<div class="date">
+				<span class="card-date-day">20</span><span class="card-date-month">APR</span>
+			</div>
+			<figcaption>
+				<h4>
+					<span>The arsonist had oddly shaped feet</span>
+				</h4>
+				<p>The magic Indian is a mysterious spiritual force, and we're
+					going to Cathedral Rock, and that's the vortex of the heart.</p>
+			</figcaption>
+		</figure>
+	</a>
+
 </body>
 </html>
