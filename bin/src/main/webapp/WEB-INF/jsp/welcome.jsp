@@ -29,7 +29,7 @@
 			<div class="row">
 				<div class="col-xs-5 header-logo">
 					<br>
-					<a href="index.html"><img src="/resources/img/logo1.jpeg" alt="" class="img-responsive logo"></a>
+					<a href="#"><img src="/resources/img/logo1.jpeg" alt="" class="img-responsive logo"></a>
 				</div>
 
 				<div class="col-md-7">
