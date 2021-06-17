@@ -30,15 +30,15 @@
 		<div class="container">
 			<h2 class="menu_title">Dash Board</h2>
 			<ul class="list_load">
-				<li class="list_item"><a href="patientDocsList">Book
+				<li class="list_item"><a href="/patientDocsList">Book
 						Appointment</a></li>
 				<li class="list_item"><a href="/updatePatientProfile/${pId}">Update
 						Profile</a></li>
-				<li class="list_item"><a href="viewAppointment/${pId}">Appointments
+				<li class="list_item"><a href="/viewAppointment/${pId}">Appointments
 						History</a></li>
-				<li class="list_item"><a href="images/${pId}">Medication
-						History</a></li>
-				<li class="list_item"><a href="feedback">Feedback</a></li>
+			<!-- 	<li class="list_item"><a href="">Medication
+						History</a></li> -->
+				<li class="list_item"><a href="/feedback">Feedback</a></li>
 			</ul>
 			<div class="spacer_box">
 				<p>${pEmail}</p>

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,7 +21,6 @@ import com.techgeeks.repository.DoctorRepository;
 import com.techgeeks.repository.PatientRepository;
 
 @Controller
-
 public class LoginController {
 
 	@Autowired
@@ -60,12 +60,14 @@ public class LoginController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String testlogin(@ModelAttribute("user") User user, ModelMap modelMap, HttpSession session) {
+//		System.out.println(user);
 		User fromDB = userService.getByEmail(user.getEmail());
 		if (fromDB.getPassword().equals(user.getPassword())) {
 			if (fromDB.getRole().equals("patient")) {
 				session.setAttribute("pId", patientRepository.findByEmail(fromDB.getEmail()).getId());
 //				modelMap.addAttribute("pId", fromDB.getId());
 //				modelMap.addAttribute("pEmail", fromDB.getEmail());
+				
 				session.setAttribute("pEmail", patientRepository.findByEmail(fromDB.getEmail()).getEmail());
 				
 				return "patientHome";
@@ -78,6 +80,7 @@ public class LoginController {
 				Doctor doc = doctorRepository.findByDocEmail(fromDB.getEmail());
 				modelMap.addAttribute("dId", doc.getDocId());
 				modelMap.addAttribute("dEmail", fromDB.getEmail());
+				session.setAttribute("doc", doctorRepository.findByDocEmail(fromDB.getEmail()));
 				return "doctorHome";
 			}
 		} else {
