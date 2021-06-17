@@ -18,6 +18,7 @@ import com.techgeeks.model.Doctor;
 import com.techgeeks.model.Patient;
 import com.techgeeks.model.User;
 import com.techgeeks.repository.AppointmentRepository;
+import com.techgeeks.repository.DoctorRepository;
 import com.techgeeks.repository.PatientRepository;
 import com.techgeeks.repository.PrescriptionRepository;
 import com.techgeeks.repository.UserRepository;
@@ -46,6 +47,8 @@ public class PatientController {
 	@Autowired
 	PrescriptionRepository presrepo;
 	
+	@Autowired 
+	DoctorRepository docrepo;
 	
 	@RequestMapping("/updatePatientProfile/{id}")
 	public String getUpdatePatientProfileForm(@PathVariable(value = "id") int id, ModelMap modelMap) {
@@ -100,8 +103,9 @@ public class PatientController {
 
 	@RequestMapping("/patientDocsList")
 	public String patientHome(ModelMap modelmap) {
-		List<Doctor> DocsList = doctorService.getAllDoctor();
+//		List<Doctor> DocsList = doctorService.getAllDoctor();
 		// System.out.println(departmentList);
+		List<Doctor> DocsList= docrepo.findByStatus(true);
 		modelmap.put("DocsList", DocsList);
 		return "patientDocsList";
 	}
@@ -131,18 +135,5 @@ public class PatientController {
 		return "appointmentHistory";
 	}
 	
-	
-//	@RequestMapping("/viewPres/{apid}")
-//	public String viewPres(@PathVariable(value = "apid") int apid, ModelMap map) {
-//		Appointment app = appointmentRepository.getOne(apid);
-//		List<Prescription> presHist = presrepo.findByAid(apid);
-//		if (presHist.isEmpty()) {
-//			map.addAttribute("msg"," You Haven't Prescribed ..!");
-//			return "preshist";
-//		}
-//		map.put("presHist", presHist);
-//		return "preshist";
-//	}
-
 
 }

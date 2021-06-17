@@ -3,6 +3,8 @@ package com.techgeeks.controller;
 import java.util.List;
 import java.util.Objects;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -155,11 +157,30 @@ public class DoctorController {
 	public String presHist(@PathVariable(value = "apid") int apid, ModelMap map) {
 		List<Prescription> presHist = presrepo.findByAid(apid);
 		if (presHist.isEmpty()) {
-			map.addAttribute("msg"," You Haven't Prescribed ..!");
+			map.addAttribute("msg", " You Haven't Prescribed ..!");
 			return "preshist";
 		}
 		map.put("presHist", presHist);
 		return "preshist";
 	}
 
+	@RequestMapping("/viewPres/{apid}")
+	public String viewPres(@PathVariable(value = "apid") int apid, ModelMap map) {
+		List<Prescription> presHist = presrepo.findByAid(apid);
+		if (presHist.isEmpty()) {
+			map.addAttribute("msg", " Your medicine was not Prescribed..!");
+			return "preshist";
+		}
+		map.put("presHist", presHist);
+		return "preshist";
+	}
+	
+
+	@RequestMapping("/switchStatus")
+	public void updateStatus(@RequestParam("status") boolean status, HttpSession session) {
+		Doctor doc = (Doctor)session.getAttribute("doc");
+		doc.setStatus(status);
+		doctorRepository.save(doc);
+	}
+	
 }

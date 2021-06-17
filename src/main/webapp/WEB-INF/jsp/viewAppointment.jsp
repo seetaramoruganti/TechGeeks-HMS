@@ -70,13 +70,10 @@
 						<td>${app.contact}</td>
 						<td>${app.age}</td>
 						<td>${app.description}</td>
-						<td>Download reports</td>
+						<td><a href="/download/${app.apid}">Download reports</a></td>
 						<td><a href="/prescribe/${app.apid}">Prescribe</a></td>
-						<td>
-							<a href="/presHist/${app.apid}">Prescription History</a>
+						<td><a href="/presHist/${app.apid}">Prescription History</a>
 						</td>
-						
-						
 					</tr>
 				</c:forEach>
 			</tbody>

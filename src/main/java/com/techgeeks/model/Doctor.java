@@ -24,6 +24,7 @@ public class Doctor {
 	private String docAdd;
 	private String phoneNum;
 	private String docDept;
+	private boolean status=true;
 
 	public Doctor() {
 		super();
@@ -31,7 +32,7 @@ public class Doctor {
 	}
 
 	public Doctor(int docId, String docName, String docEmail, String docPass, String docAdd, String phoneNum,
-			String docDept) {
+			String docDept, boolean status) {
 		super();
 		this.docId = docId;
 		this.docName = docName;
@@ -40,6 +41,16 @@ public class Doctor {
 		this.docAdd = docAdd;
 		this.phoneNum = phoneNum;
 		this.docDept = docDept;
+		this.status = status;
+	}
+	
+
+	public boolean isStatus() {
+		return status;
+	}
+
+	public void setStatus(boolean status) {
+		this.status = status;
 	}
 
 	public int getDocId() {

@@ -51,6 +51,7 @@
 						<th>Doctor Department</th>
 						<th>Edit</th>
 						<th>Delete</th>
+						<th>Status</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -63,6 +64,7 @@
 							<td>${doct.docDept}</td>
 							<td><a href="editDoct/${doct.docId}">EDIT</a></td>
 							<td><a href="deleteDoct/${doct.docId}" >Delete</a></td>
+							<td>${doct.status}</td>
 						</tr>
 					</c:forEach>
 				</tbody>
