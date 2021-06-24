@@ -3,14 +3,16 @@
 @import url(https://fonts.googleapis.com/css?family=Raleway:300,700);
 
 body {
-	/* background: #048; */
+	
+	background: url("/resources/DocHomeImg/docc.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
 	/*background: -webkit-linear-gradient(left top, #027, #48a);
 	background: -moz-linear-gradient(bottom right, #027, #48a);
 	background: linear-gradient(to bottom right, #027, #48a);*/
-    background: url("/resources/DocHomeImg/docc.jpg");
-    background-repeat: no-repeat;
-	background-size: cover;
-	color: 	#000000;
+	
+	/* background-attachment: fixed; */
+	color: #000000;
 	font-family: 'Raleway', Helvetica, Arial, sans-serif;
 	font-size: 18px;
 	font-weight: 300;
@@ -21,48 +23,52 @@ body {
 	width: 100%;
 }
 
-.title span {
-	color: black;
-	margin-left: 40%;
+table {
+	border-collapse: collapse;
+	background-color: #e6f5ff;
+    /* display: inline-block; */
+    border-collapse:collapse;
+    font-family: 'Roboto Slab', serif;
+    font-size: 20px;    
+    margin-top: 3%;
+    margin-left: 5%;
+    margin-right: 1%;
+    margin-bottom: 2%;
+   /*  font-size: 0.9em; */
+    
+    /* min-width: 350px; */
+    border-radius: 5px 5px 0 0; 
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.15);
+}
+.tbl-header{
+	margin-top:4%;
+	color: #00004d;
+    font-family: 'Roboto Slab', serif;
+}
+td button{
+	color: white;
+}
+thead tr
+{
+    background-color: rgba(0, 20, 60, .9);
+    font-size: 24px;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+}  
+
+th, td {
+	padding: 18px;
 }
 
-.adddeptbtn {
-	margin-left: 40%;
-}
-
-.table {
-	margin-left: 40%;
-}
- .form-control{
-   align: center;
-   border-radius: 5px;
-   font-size: 25px;
-	color:black;
-	background-color: #e6f2ff;
-	margin-left: 40%;
-}
-.page_title {
-	font-weight: 900;
-	font-size: 65px;
+.page_title, .what_to_do {
+	font-weight: 300;
 	line-height: 120%;
 	text-align: center;
 	text-shadow: 0 1px 5px rgba(0, 0, 0, .8);
 	text-transform: uppercase;
-	margin-top: 6%;
-	margin-left: 30%;
-	color: white;
 }
- .what_to_do {
-	font-weight: 700;
-	font-size: 22px;
-	line-height: 120%;
-	text-align: center;
-	text-shadow: 0 1px 5px rgba(0, 0, 0, .8);
-	text-transform: uppercase;
-    margin-left: 30%;
-	color: white;
-}
-
 
 /* PEN STYLES ========== */
 a, .side_menu {

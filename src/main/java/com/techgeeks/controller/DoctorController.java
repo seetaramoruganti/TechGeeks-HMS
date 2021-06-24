@@ -1,11 +1,17 @@
 package com.techgeeks.controller;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -31,7 +37,9 @@ public class DoctorController {
 
 	@Autowired
 	DoctorRepository doctorRepository;
-
+	
+	
+	
 	@Autowired
 	DoctorService doctorService;
 
@@ -46,6 +54,9 @@ public class DoctorController {
 
 	@Autowired
 	PrescriptionRepository presrepo;
+	
+	@Autowired
+	private JavaMailSender mailSenderObj;
 
 	@RequestMapping("/doctor")
 	public String doctor(ModelMap modelmap) {
@@ -63,9 +74,55 @@ public class DoctorController {
 	}
 
 	@RequestMapping(value = "/addDoctor", method = RequestMethod.POST)
-	public String addDept(@ModelAttribute("doctor") Doctor doctor) {
+	public String addDept(@ModelAttribute("doctor") Doctor doctor) throws IOException  {
 		doctorService.addDoctor(doctor);
+		sendmail(doctor);
+		return "redirect:/doctor";
+	}
+	
+	
+		
+	private void sendmail(Doctor doctor) {
+		final String emailToRecipient = doctor.getDocEmail();
+		final String emailSubject = "successfully registered";
+		final String emailMessage1 = "<html> <body> <p>Dear Sir/Madam,</p><p>You have succesfully Registered with our Services"
+				 + "<br><br>"
+				+ "<table border='1' width='300px' style='text-align:center;font-size:20px;'><tr> <td colspan='2'>"
+				+  "</td></tr><tr><td>Name</td><td>" + doctor.getDocName()
+				+ "</td></tr><tr><td>Email Id</td><td>" + doctor.getDocEmail()
+				+ "</td></tr><tr><td>Password</td><td>" + doctor.getDocPass()
+				+ "</td></tr></table> </body></html>";
 
+		mailSenderObj.send(new MimeMessagePreparator() {
+			public void prepare(MimeMessage mimeMessage) throws Exception {
+
+				MimeMessageHelper mimeMsgHelperObj = new MimeMessageHelper(mimeMessage, true, "UTF-8");
+				mimeMsgHelperObj.setFrom("hmstechgeeks@gmail.com");
+				
+				mimeMsgHelperObj.setTo(emailToRecipient);
+				
+				mimeMsgHelperObj.setText(emailMessage1, true);
+
+				mimeMsgHelperObj.setSubject(emailSubject);
+				
+			
+			}
+		});
+
+	}
+	
+	
+	
+	
+	
+	@RequestMapping(value = "/updateDoctorPrf", method = RequestMethod.POST)
+	public String updateDoctorPrf(@ModelAttribute("doc") Doctor doc, ModelMap model) {
+		doctorRepository.save(doc);
+		User user = userRepository.findByEmail(doc.getDocEmail());
+		user.setPassword(doc.getDocPass());
+		userRepository.save(user);
+//		model.addAttribute("dId", doc.getDocId());
+//		model.addAttribute("dEmail", doc.getDocEmail());
 		return "redirect:/doctor";
 	}
 
@@ -78,7 +135,11 @@ public class DoctorController {
 
 	@RequestMapping("/deleteDoct/{docId}")
 	public String deleteDoct(@PathVariable(value = "docId") int docId) {
+		
+		Doctor doctor = doctorRepository.findById(docId).get();
+		User user = userRepository.findByEmail(doctor.getDocEmail());
 		doctorRepository.deleteById(docId);
+		userRepository.deleteById(user.getId());
 		return "redirect:/doctor";
 
 	}
@@ -176,11 +237,11 @@ public class DoctorController {
 	}
 	
 
-	@RequestMapping("/switchStatus")
-	public void updateStatus(@RequestParam("status") boolean status, HttpSession session) {
-		Doctor doc = (Doctor)session.getAttribute("doc");
-		doc.setStatus(status);
-		doctorRepository.save(doc);
-	}
+//	@RequestMapping("/switchStatus")
+//	public void updateStatus(@RequestParam("status") boolean status, HttpSession session) {
+//		Doctor doc = (Doctor)session.getAttribute("doc");
+//		doc.setStatus(status);
+//		doctorRepository.save(doc);
+//	}
 	
 }

@@ -7,14 +7,17 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link href="<c:url value="/resources/editDNPcss/EditDNP.css" />" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Zilla+Slab&display=swap" rel="stylesheet">
 <title>Update Profile</title>
 </head>
 <body>
 	<div align="center">
 		<h2>Update Doctor Profile</h2>
 		<form:form action="/updateDoctor" method="post"
-			modelAttribute="doc">
-			<table border="1" cellpadding="5">
+			modelAttribute="doc" class="frm">
+			<table border="0" cellpadding="5">
 				<!-- <tr>
 					<td>Id:</td>
 					<td> --><form:input type="hidden" path="docId"  /><!-- </td>
@@ -34,6 +37,10 @@
 				<tr>
 					<td>Address:</td>
 					<td><form:input path="docAdd" /></td>
+				</tr>
+				<tr>
+					<td>Department:</td>
+					<td><form:input path="docDept" /></td>
 				</tr>
 				<tr>
 					<td>Mobile:</td>

@@ -6,7 +6,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link href="<c:url value="resources/admin/admin.css" />" rel="stylesheet">
+<link href="<c:url value="resources/DNPinAdminDash/adminforDNP.css" />" rel="stylesheet">
+<link href="<c:url value="resources/DNPinAdminDash/DNP.css" />" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Zilla+Slab&display=swap" rel="stylesheet">
 <script src="<c:url value="resources/admin/admin.js" />"></script>
 <title>Nurse Home</title>
 </head>
@@ -32,10 +35,11 @@
 				<li class="list_item"><a href="patients">Patients</a></li>
 				<li class="list_item"><a href="nurse">Nurse</a></li>
 				<li class="list_item"><a href="viewFeedback">View Feedback</a></li>
-				<li class="list_item"><a href="profile">Profile</a></li>
+				<li class="list_item"><a href="search">Search a Patient</a></li>
+				<li class="list_item"><a href="updateAdminProfile/${adminId}">Update Profile</a></li>
 			</ul>
 			<div class="spacer_box">
-				<p>${aEmail}</p>
+				<p><font color="red">${adminEmail}</font></p>
 			</div>
 		</div>
 	</div>
@@ -59,15 +63,18 @@
 						<td>${nurse.nurseEmail}</td>
 						<td>${nurse.nurseAdd}</td>
 						<td>${nurse.nurseNum}</td>
-						<td><a href="editNurse/${nurse.nurseId}">EDIT</a></td>
-						<td><a href="deleteNurse/${nurse.nurseId}">Delete</a></td>
+						<%-- <td><a href="editNurse/${nurse.nurseId}">EDIT</a></td>
+						<td><a href="deleteNurse/${nurse.nurseId}">Delete</a></td> --%>
+						<td><button class="button button1"><a id="EditButton" href="editNurse/${nurse.nurseId}">Edit</a></button></td>
+						<td><button class="button button2"><a id="DeleteButton" href="deleteNurse/${nurse.nurseId}">Delete</a></button></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-				<button type="button">
+		<!-- 		<button type="button">
 			<a href="addNurse">Add Nurse</a>
-		</button>
+		</button> -->
+			<button class="button button3"><a id="AddButton" href="addNurse" >Add Nurse</a></button>
 	</div>
 </body>
 </html>

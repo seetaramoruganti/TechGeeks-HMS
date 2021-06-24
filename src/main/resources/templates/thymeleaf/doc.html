@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet" href="/resources/dochtmlcss/dochtml.css"/>
 <title>File Upload / Download</title>
 </head>
 <body>
@@ -10,7 +11,7 @@
      <form id="uploadFiles" name="uploadFiles" method="post" th:action=@{/uploadFiles} encType="multipart/form-data">
        <input type="file" name="files" multiple required />
        <input name="apid" type="hidden" th:value="${apid}">
-       <button type="submit">Submit</button>
+       <button class="button button1" type="submit">Submit</button>
      </form>
    </div>
    

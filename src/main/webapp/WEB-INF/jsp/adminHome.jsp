@@ -12,7 +12,7 @@
 <script src="<c:url value="resources/admin/admin.js" />"></script>
 </head>
 <body>
-	<h1 class="page_title">Welcome ${aEmail} !!!</h1>
+	<h1 class="page_title">Welcome ${adminEmail} !!!</h1>
 	<h4 class="what_to_do">Here are the Updates for u</h4>
 
 	<div class="side_menu">
@@ -37,10 +37,10 @@
 				<li class="list_item"><a href="nurse">Nurse</a></li>
 				<li class="list_item"><a href="viewFeedback">View Feedback</a></li>
 				<li class="list_item"><a href="search">Search a Patient</a></li>
-				<li class="list_item"><a href="updateAdminProfile/${aId}">Update Profile</a></li>
+				<li class="list_item"><a href="updateAdminProfile/${adminId}">Update Profile</a></li>
 			</ul>
 			<div class="spacer_box">
-				<p>${aEmail}</p>
+				<p><font color="red">${adminEmail}</font></p>
 			</div>
 		</div>
 	</div>

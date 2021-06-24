@@ -33,34 +33,57 @@ public class Appointment {
 	private int patid;
 	private String description;
 
-	@Lob
-	private byte[] data;
-
-	private String fname;
-	private String ftype;
+//	@Lob
+//	private byte[] data;
+//
+//	private String fname;
+//	private String ftype;
 
 	public Appointment() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Appointment(int apid, String name, String email, String contact, int age, Date day, String speciality,
-			int docid, int patid, String description, byte[] data, String fname, String ftype) {
+	
+
+	
+
+
+
+	
+
+
+
+
+
+
+
+	public Appointment(String name, String email, String contact, int age, String speciality, int docid, int patid,
+			String description) {
 		super();
-		this.apid = apid;
 		this.name = name;
 		this.email = email;
 		this.contact = contact;
 		this.age = age;
-		this.day = day;
 		this.speciality = speciality;
 		this.docid = docid;
 		this.patid = patid;
 		this.description = description;
-		this.data = data;
-		this.fname = fname;
-		this.ftype = ftype;
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	public int getApid() {
 		return apid;
@@ -142,36 +165,39 @@ public class Appointment {
 		this.description = description;
 	}
 
-	public byte[] getData() {
-		return data;
-	}
 
-	public void setData(byte[] data) {
-		this.data = data;
-	}
-
-	public String getFname() {
-		return fname;
-	}
-
-	public void setFname(String fname) {
-		this.fname = fname;
-	}
-
-	public String getFtype() {
-		return ftype;
-	}
-
-	public void setFtype(String ftype) {
-		this.ftype = ftype;
-	}
 
 	@Override
 	public String toString() {
 		return "Appointment [apid=" + apid + ", name=" + name + ", email=" + email + ", contact=" + contact + ", age="
 				+ age + ", day=" + day + ", speciality=" + speciality + ", docid=" + docid + ", patid=" + patid
-				+ ", description=" + description + ", data=" + Arrays.toString(data) + ", fname=" + fname + ", ftype="
-				+ ftype + "]";
+				+ ", description=" + description + "]";
 	}
+
+//	public byte[] getData() {
+//		return data;
+//	}
+//
+//	public void setData(byte[] data) {
+//		this.data = data;
+//	}
+//
+//	public String getFname() {
+//		return fname;
+//	}
+//
+//	public void setFname(String fname) {
+//		this.fname = fname;
+//	}
+//
+//	public String getFtype() {
+//		return ftype;
+//	}
+//
+//	public void setFtype(String ftype) {
+//		this.ftype = ftype;
+//	}
+
+	
 
 }

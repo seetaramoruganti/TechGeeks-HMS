@@ -1,68 +1,47 @@
 @charset "ISO-8859-1";
 
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,700);
+.button {
+  background-color: rgba(0, 20, 60, .9); /* dashboard color */
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
 
-body {
-	/* background: #048; */
-	/*background: -webkit-linear-gradient(left top, #027, #48a);
-	background: -moz-linear-gradient(bottom right, #027, #48a);
-	background: linear-gradient(to bottom right, #027, #48a);*/
-    background: url("/resources/DocHomeImg/docc.jpg");
-    background-repeat: no-repeat;
-	background-size: cover;
-	color: 	#000000;
-	font-family: 'Raleway', Helvetica, Arial, sans-serif;
-	font-size: 18px;
+.button1 {border-radius: 12px;
+ color: white;
+}
+button a{
+	color:white;
+	font-family: 'Roboto Slab', serif;
+}
+.button2 {border-radius: 12px;}
+.button3 {border-radius: 12px;}
+
+
+#EditButton {
+	text-decoration: none;
+}
+#DeleteButton {
+	text-decoration: none;
+}
+
+#AddButton {
+	text-decoration: none;
+}
+.page_title, .what_to_do {
 	font-weight: 300;
-	line-height: 140%;
-	margin: 0;
-	height: 100%;
-	padding: 0;
-	width: 100%;
-}
-
-.title span {
-	color: black;
-	margin-left: 40%;
-}
-
-.adddeptbtn {
-	margin-left: 40%;
-}
-
-.table {
-	margin-left: 40%;
-}
- .form-control{
-   align: center;
-   border-radius: 5px;
-   font-size: 25px;
-	color:black;
-	background-color: #e6f2ff;
-	margin-left: 40%;
-}
-.page_title {
-	font-weight: 900;
-	font-size: 65px;
 	line-height: 120%;
 	text-align: center;
 	text-shadow: 0 1px 5px rgba(0, 0, 0, .8);
 	text-transform: uppercase;
-	margin-top: 6%;
-	margin-left: 30%;
-	color: white;
+	
 }
- .what_to_do {
-	font-weight: 700;
-	font-size: 22px;
-	line-height: 120%;
-	text-align: center;
-	text-shadow: 0 1px 5px rgba(0, 0, 0, .8);
-	text-transform: uppercase;
-    margin-left: 30%;
-	color: white;
-}
-
 
 /* PEN STYLES ========== */
 a, .side_menu {

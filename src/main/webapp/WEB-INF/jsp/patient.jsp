@@ -6,7 +6,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link href="<c:url value="resources/admin/admin.css" />" rel="stylesheet">
+<link href="<c:url value="resources/DNPinAdminDash/adminforDNP.css" />" rel="stylesheet">
+<link href="<c:url value="resources/DNPinAdminDash/DNP.css" />" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Zilla+Slab&display=swap" rel="stylesheet">
 <script src="<c:url value="resources/admin/admin.js" />"></script>
 <title>Patient Home</title>
 </head>
@@ -32,27 +35,28 @@
 				<li class="list_item"><a href="patients">Patients</a></li>
 				<li class="list_item"><a href="nurse">Nurse</a></li>
 				<li class="list_item"><a href="viewFeedback">View Feedback</a></li>
-				<li class="list_item"><a href="profile">Profile</a></li>
+				<li class="list_item"><a href="search">Search a Patient</a></li>
+				<li class="list_item"><a href="updateAdminProfile/${adminId}">Update Profile</a></li>
 			</ul>
 			<div class="spacer_box">
-				<p>${aEmail}</p>
+				<p><font color="red">${adminEmail}</font></p>
 			</div>
 		</div>
 	</div>
 	<div align="center">
 		<h1>List of Available Patient in Hospital</h1>
-		<table border=1px>
+		<table border=1px >
 			<thead>
 				<tr>
-					<th>Patient Name</th>
-					<th>Patient Email</th>
-					<th>Patient Address</th>
-					<th>Patient Phone</th>
-					<th>Patient Sex</th>
-					<th>Patient D.O.B</th>
-					<th>Patient Age</th>
-					<th>Patient Blood Group</th>
-					<th>Patient Role</th>
+					<th>Name</th>
+					<th>Email</th>
+					
+					<th>Phone</th>
+					<th>Sex</th>
+					<th>D.O.B</th>
+					
+					<th>B gp.</th>
+					
 					<th>Edit</th>
 					<th>Delete</th>
 				</tr>
@@ -62,22 +66,25 @@
 					<tr>
 						<td>${patient.name}</td>
 						<td>${patient.email}</td>
-						<td>${patient.address}</td>
+						
 						<td>${patient.mobile}</td>
 						<td>${patient.sex}</td>
 						<td>${patient.dob}</td>
-						<td>${patient.age}</td>
+						
 						<td>${patient.bloodgrp}</td>
-						<td>${patient.role}</td>
-						<td><a href="editPatient/${patient.id}">EDIT</a></td>
-						<td><a href="deletePatient/${patient.id}">Delete</a></td>
+						
+					<%-- 	<td><a href="editPatient/${patient.id}">EDIT</a></td>
+						<td><a href="deletePatient/${patient.id}">Delete</a></td> --%>
+						<td><button class="button button1"><a id="EditButton" href="editPatient/${patient.id}">Edit</a></button></td>
+						<td><button class="button button2"><a id="DeleteButton" href="deletePatient/${patient.id}">Delete</a></button></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-		<button type="button">
+	<!-- 	<button type="button">
 			<a href="addPatient">Add Patient</a>
-		</button>
+		</button> -->
+		<button class="button button3"><a id="AddButton" href="addPatient" >Add Patient</a></button>
 	</div>
 </body>
 </html>

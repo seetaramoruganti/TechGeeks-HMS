@@ -15,4 +15,6 @@ public interface DoctorRepository extends JpaRepository<Doctor, Integer> {
 	
 	public List<Doctor> findByStatus(boolean status);
 
+
+
 }

@@ -6,9 +6,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<link href="<c:url value="resources/admin/admin.css" />"
-	rel="stylesheet">
+<link href="<c:url value="resources/DNPinAdminDash/adminforDNP.css" />" rel="stylesheet">
+<link href="<c:url value="resources/DNPinAdminDash/DNP.css" />" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Zilla+Slab&display=swap" rel="stylesheet">
 <script src="<c:url value="resources/admin/admin.js" />"></script>
+
 <title>Feedback List</title>
 </head>
 <body>
@@ -33,10 +36,11 @@
 				<li class="list_item"><a href="patients">Patients</a></li>
 				<li class="list_item"><a href="nurse">Nurse</a></li>
 				<li class="list_item"><a href="viewFeedback">View Feedback</a></li>
-				<li class="list_item"><a href="profile">Profile</a></li>
+				<li class="list_item"><a href="search">Search a Patient</a></li>
+				<li class="list_item"><a href="updateAdminProfile/${adminId}">Update Profile</a></li>
 			</ul>
 			<div class="spacer_box">
-				<p>${aEmail}</p>
+				<p><font color="red">${adminEmail}</font></p>
 			</div>
 		</div>
 	</div>
@@ -50,6 +54,7 @@
 					<th>Email</th>
 					<th>Contact</th>
 					<th>Suggestion</th>
+					<th>Delete</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -59,7 +64,7 @@
 						<td>${flist.email}</td>
 						<td>${flist.contact}</td>
 						<td>${flist.suggestion}</td>
-						<td><a href="deleteFeedback/${flist.f_id}">Delete</a></td>
+						<td><button class="button button2"><a id="DeleteButton"  href="deleteFeedback/${flist.f_id}">Delete</a></button></td>
 					</tr>
 				</c:forEach>
 			</tbody>

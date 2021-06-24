@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -21,6 +23,7 @@ import com.techgeeks.repository.DoctorRepository;
 import com.techgeeks.repository.PatientRepository;
 
 @Controller
+@CrossOrigin(origins="http://localhost:4200")
 public class LoginController {
 
 	@Autowired
@@ -71,15 +74,24 @@ public class LoginController {
 				session.setAttribute("pEmail", patientRepository.findByEmail(fromDB.getEmail()).getEmail());
 				
 				return "patientHome";
-			} else if (fromDB.getRole().equals("admin")) {
-				modelMap.addAttribute("aId", fromDB.getId());
-				modelMap.addAttribute("aEmail", fromDB.getEmail());
+			}  else if (fromDB.getRole().equals("admin")) {
+//				modelMap.addAttribute("aId", fromDB.getId());
+//				modelMap.addAttribute("aEmail", fromDB.getEmail());
+				
+				session.setAttribute("adminId", fromDB.getId());
+				session.setAttribute("adminEmail", fromDB.getEmail());
+				
+//				System.out.println(fromDB.getId());
+//
+//				System.out.println(fromDB.getEmail());
+				
 				return "adminHome";
+				
 			} else {
 
 				Doctor doc = doctorRepository.findByDocEmail(fromDB.getEmail());
-				modelMap.addAttribute("dId", doc.getDocId());
-				modelMap.addAttribute("dEmail", fromDB.getEmail());
+				session.setAttribute("dId", doc.getDocId());
+				session.setAttribute("dEmail", fromDB.getEmail());
 				session.setAttribute("doc", doctorRepository.findByDocEmail(fromDB.getEmail()));
 				return "doctorHome";
 			}
@@ -91,6 +103,13 @@ public class LoginController {
 
 	}
 
+//	@RequestMapping("/register")
+//	public String register(ModelMap model) {
+//		Patient patient = new Patient();
+//		model.put("patient", patient);
+//		return "register";
+//	}
+	
 	@RequestMapping("/register")
 	public String register(ModelMap model) {
 		Patient patient = new Patient();
@@ -98,14 +117,27 @@ public class LoginController {
 		return "register";
 	}
 
-	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String savePatient(@ModelAttribute("patient") Patient patient, User user, Model model) {
+	@RequestMapping(value = "/register", method=RequestMethod.POST)
+	public String savePatient(@ModelAttribute("patient") Patient patient, User user) {
 		patientService.addPatient(patient);
 //		User user = new User();
-		user.setEmail(patient.getEmail());
-		user.setPassword(patient.getPassword());
-		user.setRole(patient.getRole());
-		userService.saveUser(user);
-		return "redirect:/login";
+//		user.setEmail(patient.getEmail());
+//		user.setPassword(patient.getPassword());
+//		user.setRole(patient.getRole());
+//		userService.saveUser(user);
+		return "welcome";
 	}
+	
+//	@RequestMapping(value = "/register", method=RequestMethod.POST)
+//	public String savePatient(@ModelAttribute("patient") Patient patient) {
+//		patientService.addPatient(patient);
+//		User user = new User();
+//		user.setEmail(patient.getEmail());
+//		user.setPassword(patient.getPassword());
+//		user.setRole(patient.getRole());
+//		userService.saveUser(user);
+//		return "login";
+//	}
+	
+	
 }

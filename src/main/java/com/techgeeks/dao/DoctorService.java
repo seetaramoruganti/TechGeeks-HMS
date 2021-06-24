@@ -31,7 +31,7 @@ public class DoctorService implements DoctorDao{
 	@Override
 	public void addDoctor(Doctor doctor) {
 		// TODO Auto-generated method stub
-		
+		doctor.setDocPass("1234");
 		doctorRepository.save(doctor);
 		User user = new User();
 		user.setEmail(doctor.getDocEmail());

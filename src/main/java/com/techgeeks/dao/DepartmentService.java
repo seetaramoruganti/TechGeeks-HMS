@@ -38,17 +38,17 @@ public class DepartmentService implements DepartmentDao {
 		return department;
 	}
 	
-	@Autowired
-	public void updateDept(Department department) {
-		// TODO Auto-generated method stub
+//	@Autowired
+//	public void updateDept(Department department) {
+//		// TODO Auto-generated method stub
+////		
+////		Department d = departmentRespository.findById(dept_id).get();
+////		d.setDeptName(department.getDeptName());
+////		d.setDeptDesc(department.getDeptDesc());
+//		departmentRespository.save(department);
 //		
-//		Department d = departmentRespository.findById(dept_id).get();
-//		d.setDeptName(department.getDeptName());
-//		d.setDeptDesc(department.getDeptDesc());
-		departmentRespository.save(department);
-		
-		
-	}
+//		
+//	}
 
 	
 

@@ -11,13 +11,14 @@
 <link href="<c:url value="/resources/admin/admin.css" />"
 	rel="stylesheet">
 <script src="<c:url value="/resources/admin/admin.js" />"></script>
-<link href="<c:url value="/resources/PatHome/pat.css" />"
-	rel="stylesheet">
+<%-- <link href="<c:url value="/resources/PatHome/pat.css" />"
+	rel="stylesheet"> --%>
 <title>Patient Home</title>
 </head>
 <body>
-	<%-- 	<h1 class="page_title">Welcome ${aEmail} !!!</h1>
-	<h4 class="what_to_do">Here are the Updates for u</h4> --%>
+	<h1 class="page_title">Welcome ${pEmail} !!!</h1>
+	
+	<h4 class="what_to_do">Here are the Updates for u</h4>
 	<div class="side_menu">
 		<div class="burger_box">
 			<div class="menu-icon-container">
@@ -39,16 +40,17 @@
 						Profile</a></li>
 				<li class="list_item"><a href="viewAppointment/${pId}">Appointments
 						History</a></li>
-				<li class="list_item"><a href="images/${pId}">Medication
-						History</a></li>
+
 				<li class="list_item"><a href="feedback">Feedback</a></li>
 			</ul>
 			<div class="spacer_box">
-				<p>${pEmail}</p>
+				<p>
+					<font color="red">${pEmail}</font>
+				</p>
 			</div>
 		</div>
 	</div>
-	<a href="#">
+	<!-- 	<a href="#">
 		<figure>
 			<div class="date">
 				<span class="card-date-day">20</span><span class="card-date-month">APR</span>
@@ -61,7 +63,7 @@
 					going to Cathedral Rock, and that's the vortex of the heart.</p>
 			</figcaption>
 		</figure>
-	</a>
+	</a> -->
 
 </body>
 </html>

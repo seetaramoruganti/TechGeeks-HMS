@@ -8,4 +8,6 @@ import com.techgeeks.model.Nurse;
 @Repository
 public interface NurseRepository extends JpaRepository<Nurse, Integer> {
 
+	public Nurse findByNurseEmail(String email);
+
 }

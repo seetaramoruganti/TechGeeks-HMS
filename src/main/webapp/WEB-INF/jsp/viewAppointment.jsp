@@ -29,6 +29,7 @@
 		<div class="container">
 			<h2 class="menu_title">Dash Board</h2>
 			<ul class="list_load">
+				
 				<li class="list_item"><a href="/AppointmentsListWtDoc/${dId}">My
 						Appointment</a></li>
 				<li class="list_item"><a href="/updateDoctorProfile/${dId}">Update
@@ -38,7 +39,9 @@
 				<li class="list_item"><a href="/search">Search a Patient</a></li>
 			</ul>
 			<div class="spacer_box">
-				<p>${dEmail}</p>
+				<p>
+					<font color="red">${dEmail}</font>
+				</p>
 			</div>
 		</div>
 	</div>

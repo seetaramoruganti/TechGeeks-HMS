@@ -8,9 +8,9 @@
 <head>
 <meta charset="ISO-8859-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<link href="<c:url value="resources/admin/admin.css" />"
+<link href="<c:url value="/resources/admin/admin.css" />"
 	rel="stylesheet">
-<script src="<c:url value="resources/admin/admin.js" />"></script>
+<script src="<c:url value="/resources/admin/admin.js" />"></script>
 <title>View Appointments</title>
 </head>
 <body>

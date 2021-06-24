@@ -7,20 +7,19 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Update Profile</title>
-<link href="<c:url value="/resources/admin/admin.css" />"
-	rel="stylesheet">
-<script src="<c:url value="/resources/admin/admin.js" />"></script>
+<link href="<c:url value="/resources/editDNPcss/EditDNP.css" />" rel="stylesheet">
+<link href="<c:url value="resources/DNPinAdminDash/DNP.css" />" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.gstatic.com">
-<link
-	href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap"
-	rel="stylesheet">
-<link href="<c:url value="/resources/patupdatePro/pro.css" />"
-	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Zilla+Slab&display=swap" rel="stylesheet">
+<title>Update Profile</title>
+<style>
+.frm{
+margin-left: 33%;
+}
+</style>
 </head>
-
 <body>
-	<div class="side_menu">
+	<%-- <div class="side_menu">
 		<div class="burger_box">
 			<div class="menu-icon-container">
 				<a href="#" class="menu-icon js-menu_toggle closed"> <span
@@ -51,30 +50,60 @@
 		</div>
 	</div>
 
-
+ --%>
 	<div class="container">
+	<h2>Update Patient Profile</h2>
 		<form:form action="/updatePatient" method="post"
-			modelAttribute="patient">
-			<P>Update Profile</P>
-			<form:input type="hidden" path="id" />
-			<form:input type="hidden" path="email" />
-
-			<form:input path="password" />
-
-
-			<form:input path="address" />
-
-
-			<form:input path="sex" />
-
-
-			<form:input path="age" />
-
-
-			<form:input path="bloodgrp" />
-
-
-			<input type="submit" value="Update">
+			modelAttribute="patient" class="frm">
+			<table border="0" cellpadding="5">
+				<!-- <tr>
+					<td>Id:</td>
+					<td> --><form:input type="hidden" path="id"  /><!-- </td>
+				</tr> -->
+				<!-- <tr>
+					<td>Id:</td>
+					<td> --><form:input type="hidden" path="email"  /><!-- </td>
+				</tr> -->
+				
+				<tr>
+					<td>Name:</td>
+					<td><form:input path="name" /></td>
+				</tr>
+				
+ 				<tr>
+					<td>Password:</td>
+					<td><form:input path="password" /></td>
+				</tr>
+				<tr>
+					<td>Address:</td>
+					<td><form:input path="address" /></td>
+				</tr>
+				<tr>
+					<td>Sex:</td>
+					<td><form:input path="sex" /></td>
+				</tr>
+				<tr>
+					<td>Age:</td>
+					<td><form:input path="age" /></td>
+				</tr>
+				<tr>
+					<td>Blood Gp:</td>
+					<td><form:input path="bloodgrp" /></td>
+				</tr>
+				<tr>
+					<td>D.O.B:</td>
+					<td><form:input path="dob" type="date" /></td>
+				</tr>
+				<tr>
+					<td>Moile:</td>
+					<td><form:input path="mobile" /></td>
+				</tr>
+				<tr>
+					<td colspan="2"><input type="submit" value="Update"></td>
+				</tr>
+			</table>
+			
+			
 
 		</form:form>
 		<div class="drops">

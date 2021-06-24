@@ -27,6 +27,7 @@ public class PatientService implements PatientDao {
 	@Override
 	public void addPatient(Patient patient) {
 		// TODO Auto-generated method stub
+		patient.setPassword("1234");
 		
 		patientRepository.save(patient);
 		User user = new User();
@@ -62,7 +63,7 @@ public class PatientService implements PatientDao {
 	public Patient editPatient(int id) {
 		// TODO Auto-generated method stub
 		Patient patient = patientRepository.findById(id).get();
-		System.out.println(patient);
+//		System.out.println(patient);
 		return patient;
 	}
 

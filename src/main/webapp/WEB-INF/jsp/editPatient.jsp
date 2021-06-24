@@ -5,14 +5,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="<c:url value="/resources/editDNPcss/EditDNP.css" />" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Zilla+Slab&display=swap" rel="stylesheet">
 <meta charset="ISO-8859-1">
 <title>Admin-add Patient</title>
 </head>
 <body>
 
 	<div align="center">
-        <h2>Edit</h2>
-        <form:form action="/addPatient" method="post" modelAttribute="editedPatient">
+        <h2>Update Patient Details</h2>
+        <form:form action="/updatePatientprf" method="post" modelAttribute="editedPatient" class="frm">
             <table border="0" cellpadding="5">
                 <!-- <tr>
                     <td>ID: </td>

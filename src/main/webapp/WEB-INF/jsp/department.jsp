@@ -7,13 +7,15 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Department Home</title>
-<link href="<c:url value="resources/admin/admin.css" />"
+<link href="<c:url value="resources/DNPinAdminDash/adminforDNP.css" />"
+	rel="stylesheet">
+<link href="<c:url value="resources/DNPinAdminDash/DNP.css" />"
+	rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Zilla+Slab&display=swap"
 	rel="stylesheet">
 <script src="<c:url value="resources/admin/admin.js" />"></script>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-<link href="<c:url value="resources/tables/tables.css" />"
-	rel="stylesheet">
 </head>
 <body>
 	<div class="side_menu">
@@ -37,68 +39,58 @@
 				<li class="list_item"><a href="patients">Patients</a></li>
 				<li class="list_item"><a href="nurse">Nurse</a></li>
 				<li class="list_item"><a href="viewFeedback">View Feedback</a></li>
-				<li class="list_item"><a href="profile">Profile</a></li>
+				<li class="list_item"><a href="search">Search a Patient</a></li>
+				<li class="list_item"><a href="updateAdminProfile/${adminId}">Update Profile</a></li>
 			</ul>
 			<div class="spacer_box">
-				<p>${aEmail}</p>
+				<p><font color="red">${adminEmail}</font></p>
 			</div>
 		</div>
 	</div>
-	<div class="container" align="center">
-		<div class="row">
-			<div class="col-md-offset-1 col-md-10">
-				<div class="panel">
-					<div class="panel-heading">
-						<div class="row">
-							<div class="col col-sm-3 col-xs-12">
-								<h4 class="title">
-									Departments <span>List</span>
-								</h4>
-							</div>
-							<div class="col-sm-9 col-xs-12 text-right">
-								<form:form action="/searchDept" method="post">
-									<div class="btn_group">
-										<input type="text" class="form-control" placeholder="Search">
-									</div>
-								</form:form>
-								<button type="button">
-									<a href="addDepartment">Add Department</a>
-								</button>
-							</div>
-						</div>
-					</div>
-					<div class="panel-body table-responsive">
-						<table class="table">
-							<thead>
-								<tr>
-									<th>#</th>
-									<th>Department Name</th>
-									<th>Department Description</th>
-									<th>Action</th>
-								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${departmentList}" var="dept">
-									<tr>
-										<td>${dept.dept_id }</td>
-										<td>${dept.deptName }</td>
-										<td>${dept.deptDesc }</td>
-										<td>
-											<ul class="action-list">
-												<li><a href="editDept/${dept.dept_id}" data-tip="edit"><i
-														class="fa fa-edit"></i></a></li>
-												<li><a href="deleteDept/${dept.dept_id}"
-													data-tip="delete"><i class="fa fa-trash"></i></a></li>
-											</ul>
-										</td>
-									</tr>
-								</c:forEach>
-							</tbody>
-						</table>
-					</div>
-				</div>
-			</div>
+	<div align="center">
+
+		<h1>Departments List</h1>
+		
+
+		<%-- <form:form action="/searchDept" method="post">
+
+			<input type="text" class="form-control" placeholder="Search">
+
+		</form:form>
+		 --%>
+
+		
+			<table  border=1px >
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Department Name</th>
+						<th>Department Description</th>
+						<th>Edit</th>
+						<th>Delete</th>
+					</tr>
+				</thead>
+				<tbody>
+					<c:forEach items="${departmentList}" var="dept">
+						<tr>
+							<td>${dept.dept_id }</td>
+							<td>${dept.deptName }</td>
+							<td>${dept.deptDesc }</td>
+							<td><button class="button button1">
+									<a id="EditButton" href="editDept/${dept.dept_id}">Edit</a>
+								</button></td>
+							<td><button class="button button2">
+									<a id="DeleteButton" href="deleteDept/${dept.dept_id}">Delete</a>
+								</button></td>
+
+
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+			<button class="button button3">
+			<a id="AddButton" href="addDepartment">Add Department</a>
+		</button>
 		</div>
-	</div>
 </body>
 </html>

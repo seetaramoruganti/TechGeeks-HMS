@@ -31,6 +31,16 @@ public class Nurse {
 	}
 
 
+	public Nurse(String nurseName, String nurseEmail, String nursePass, String nurseAdd, String nurseNum) {
+		super();
+		this.nurseName = nurseName;
+		this.nurseEmail = nurseEmail;
+		this.nursePass = nursePass;
+		this.nurseAdd = nurseAdd;
+		this.nurseNum = nurseNum;
+	}
+
+
 	public int getNurseId() {
 		return nurseId;
 	}

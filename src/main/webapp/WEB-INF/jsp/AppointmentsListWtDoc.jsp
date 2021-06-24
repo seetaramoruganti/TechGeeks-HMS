@@ -29,15 +29,19 @@
 		<div class="container">
 			<h2 class="menu_title">Dash Board</h2>
 			<ul class="list_load">
-				<li class="list_item"><a href="AppointmentsListWtDoc/${dId}">My
+				
+				<li class="list_item"><a href="/AppointmentsListWtDoc/${dId}">My
 						Appointment</a></li>
-				<li class="list_item"><a href="updateDoctorProfile/${dId}">Update
+				<li class="list_item"><a href="/updateDoctorProfile/${dId}">Update
 						Profile</a></li>
-				<li class="list_item"><a href="viewAppointment">View
+				<li class="list_item"><a href="/viewAppointmentwtDoc/${dId}">View
 						Patient History </a></li>
+				<li class="list_item"><a href="/search">Search a Patient</a></li>
 			</ul>
 			<div class="spacer_box">
-				<p>${dEmail}</p>
+				<p>
+					<font color="red">${dEmail}</font>
+				</p>
 			</div>
 		</div>
 	</div>

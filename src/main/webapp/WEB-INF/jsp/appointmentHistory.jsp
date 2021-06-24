@@ -36,12 +36,11 @@
 						Profile</a></li>
 				<li class="list_item"><a href="/viewAppointment/${pId}">Appointments
 						History</a></li>
-			<!-- 	<li class="list_item"><a href="">Medication
-						History</a></li> -->
+
 				<li class="list_item"><a href="/feedback">Feedback</a></li>
 			</ul>
 			<div class="spacer_box">
-				<p>${pEmail}</p>
+				<p><font color="red">${pEmail}</font></p>
 			</div>
 		</div>
 	</div>

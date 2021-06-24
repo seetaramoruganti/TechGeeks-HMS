@@ -149,4 +149,6 @@ public class Patient {
 				+ bloodgrp + ", role=" + role + "]";
 	}
 
+	
+
 }

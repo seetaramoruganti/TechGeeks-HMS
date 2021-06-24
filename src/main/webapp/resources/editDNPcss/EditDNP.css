@@ -1,10 +1,5 @@
-<%@page import="java.sql.*"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
+@charset "ISO-8859-1";
 
-<style type="text/css">
 .frm {
 background: rgb(199, 220, 247);
    
@@ -66,21 +61,3 @@ font-family: 'Zilla Slab', serif;
     transition: transform 80ms ease-in-out;
     width: 250px;
 }
-</style>
-<title>Insert title here</title>
-
-
-</head>
-<body>
-	<div align="center">
-		<form action="/retrieve_patient" method="post" class="frm">
-			Email Id <input type="text" name="email" placeholder="Enter Email Id">
-			<input type="submit" value="Search">
-				<p align="center">
-		<font color="red">${msg}</font>
-	</p>
-		</form>
-	</div>
-
-</body>
-</html>

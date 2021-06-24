@@ -6,13 +6,17 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link href="<c:url value="/resources/editDNPcss/EditDNP.css" />" rel="stylesheet">
+<link href="<c:url value="resources/DNPinAdminDash/DNP.css" />" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Zilla+Slab&display=swap" rel="stylesheet">
 <title>Admin-add Patient</title>
 </head>
 <body>
 	
 	<div align="center">
 	<form:form action="addPatient" method="post"
-		modelAttribute="patient">
+		modelAttribute="patient" class="frm">
 		<h2>Add Patient</h2>
 		<form:input path="name" type="String" align="center"
 			placeholder="Name of The Patient" /><br>
@@ -30,7 +34,7 @@
 			placeholder="Age of Patient" /><br>
 		<form:input path="bloodgrp" type="String" align="center"
 			placeholder="Blood Group of Patient" /><br>
-		<button align="center" type="submit"> Add</button>
+		<button class="button button3" align="center" type="submit"> Add</button>
 	</form:form>
 	</div>
 

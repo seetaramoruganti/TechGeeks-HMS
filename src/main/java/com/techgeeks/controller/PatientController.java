@@ -86,6 +86,15 @@ public class PatientController {
 		patientService.addPatient(patient);
 		return "redirect:/patients";
 	}
+	
+	@RequestMapping(value = "/updatePatientprf", method = RequestMethod.POST)
+	public String updatePatientPrf(@ModelAttribute("patient") Patient patient) {
+		patientService.updatePatient(patient);
+		User user = userRepository.findByEmail(patient.getEmail());
+		user.setPassword(patient.getPassword());
+		userRepository.save(user);
+		return "redirect:/patients";
+	}
 
 	@RequestMapping("/editPatient/{id}")
 	public String updatePatient(@PathVariable(value = "id") int id, ModelMap modelMap) {
